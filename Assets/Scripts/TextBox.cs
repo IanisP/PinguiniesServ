@@ -29,7 +29,7 @@ public class TextBox : MonoBehaviour
     public void ChangeText()
     {
         Text t = GetComponentInChildren<Text>();
-        t.text = DataManager.instance.myTab[(int)DataManager.instance.language + 1, keys[actualKey]];
+        t.text = DataManager.instance.myTabPNJ[(int)DataManager.instance.language + 1, keys[actualKey]];
     }
 
     private void OnEnable()

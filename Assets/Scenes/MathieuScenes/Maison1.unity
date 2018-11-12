@@ -540,7 +540,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -2
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -1022,8 +1022,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   language: 0
-  csvFile: {fileID: 4900000, guid: 743f9762e0f3c6943a4299e6b44a23e5, type: 3}
-  room: 0
+  csvFilePNJ: {fileID: 4900000, guid: 743f9762e0f3c6943a4299e6b44a23e5, type: 3}
+  csvFileUI: {fileID: 4900000, guid: 41d6cbe21a278c648ad7d8f56d5efade, type: 3}
+  csvFileITEMS: {fileID: 4900000, guid: 5e62a22a1e0f2e9448cafc78013c7a8b, type: 3}
+  csvFileENEMY: {fileID: 4900000, guid: 60a83034f70d89447a7cd557a95e32b2, type: 3}
+  csvFileRADAR: {fileID: 4900000, guid: 197a7c597f6eb024bb812ef62eafec3e, type: 3}
+  room: 1
 --- !u!4 &1022038038
 Transform:
   m_ObjectHideFlags: 0

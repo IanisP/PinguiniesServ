@@ -30,9 +30,17 @@ public class DataManager : MonoBehaviour
 
     public static DataManager instance;
 
-    public TextAsset csvFile;
+    public TextAsset csvFilePNJ;
+    public TextAsset csvFileUI;
+    public TextAsset csvFileITEMS;
+    public TextAsset csvFileENEMY;
+    public TextAsset csvFileRADAR;
 
-    public string[,] myTab;
+    public string[,] myTabPNJ;
+    public string[,] myTabUI;
+    public string[,] myTabITEMS;
+    public string[,] myTabENEMY;
+    public string[,] myTabRADAR;
 
     public ROOM room = ROOM.Village;
 
@@ -80,7 +88,11 @@ public class DataManager : MonoBehaviour
     void Start()
     {
         //Load File With text
-        myTab = SplitCsvGrid(csvFile.text);
+        myTabPNJ = SplitCsvGrid(csvFilePNJ.text);
+        myTabUI = SplitCsvGrid(csvFileUI.text);
+        myTabITEMS = SplitCsvGrid(csvFileITEMS.text);
+        myTabENEMY = SplitCsvGrid(csvFileENEMY.text);
+        myTabRADAR = SplitCsvGrid(csvFileRADAR.text);
         if (instance)
         {
             Destroy(gameObject);
@@ -97,6 +109,14 @@ public class DataManager : MonoBehaviour
         if (go.GetComponent<SpriteRenderer>())
         {
             go.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(go.transform.position.y * 100f) * -1;
+        }
+        else
+        {
+
+            foreach (SpriteRenderer sr in go.GetComponentsInChildren<SpriteRenderer>())
+            {
+                sr.sortingOrder = Mathf.RoundToInt(go.transform.position.y * 100f) * -1;
+            }
         }
     }
 
