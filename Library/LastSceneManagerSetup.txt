@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/MathieuScenes/Village.unity
+- path: Assets/Scenes/MobileScene.unity
   isLoaded: 1
   isActive: 1
