@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
 
     PlayerController player;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         player = PlayerController.instance;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         //transform.position = player.transform.position;
         Deplacement();
-	}
+    }
 
     private void Deplacement()
     {
@@ -29,22 +32,22 @@ public class CameraController : MonoBehaviour {
         Vector2 movement = Vector2.zero;
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            
-            movement.x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * /*(Input.GetButton("Run") ? 2 * speed :*/ speed;
+
+            // movement.x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * /*(Input.GetButton("Run") ? 2 * speed :*/ speed;
         }
         else if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            movement.x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * /*(Input.GetButton("Run") ? 2 * speed :*/ speed;
+            //movement.x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * /*(Input.GetButton("Run") ? 2 * speed :*/ speed;
         }
         else if (Input.GetAxisRaw("Vertical") > 0)
         {
-            movement.y = Input.GetAxisRaw("Vertical") * Time.deltaTime * /*(Input.GetButton("Run") ? 2 * speed :*/ speed;
+            //movement.y = Input.GetAxisRaw("Vertical") * Time.deltaTime * /*(Input.GetButton("Run") ? 2 * speed :*/ speed;
         }
         else if (Input.GetAxisRaw("Vertical") < 0)
         {
-            movement.y = Input.GetAxisRaw("Vertical") * Time.deltaTime * /*(Input.GetButton("Run") ? 2 * speed :*/ speed;
+            //movement.y = Input.GetAxisRaw("Vertical") * Time.deltaTime * /*(Input.GetButton("Run") ? 2 * speed :*/ speed;
         }
-       
+
         GetComponent<Rigidbody2D>().velocity = movement;
     }
 }
