@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Porte : MonoBehaviour {
+public class Porte : MonoBehaviour
+{
 
     [SerializeField]
     DataManager.ROOM destinationRoom;
     [SerializeField]
     DataManager.ROOM actualRoom;
-
-
 
     [SerializeField]
     DataManager.SENS sens;

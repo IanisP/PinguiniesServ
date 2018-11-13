@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RadarInfos
 {
-    public int levelRadar;
+    public static int levelRadar = 8;
 
-    public bool hasFishingUpgrade;
+    public static bool hasFishingUpgrade = false;
 
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RadarUpgrades : MonoBehaviour
 {
-    public int lvlRadar;
+    public int lvlRadar; //from 1 to 8
     // Use this for initialization
     void Start()
     {
