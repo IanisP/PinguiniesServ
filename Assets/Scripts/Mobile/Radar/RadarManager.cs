@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum directionRadar
 {
@@ -45,16 +46,27 @@ public enum zoneRadar
 
 public class RadarManager : MonoBehaviour
 {
-    public static int nbRound;
-    public static int nbRoundMax;
-    public static directionRadar myDirectionRadar;
+    public static RadarManager instance;
+
+    public int nbRound;
+    public int nbRoundMax;
+    public directionRadar myDirectionRadar;
     RadarOnUI radarUI;
     RadarUpgrades radarUpgrades;
     List<directionRadar> zones = new List<directionRadar>();
-
+    [SerializeField] Text infoRadar;
     // Use this for initialization
     void Start()
     {
+        if (instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
         radarUI = GetComponent<RadarOnUI>();
         radarUpgrades = GetComponent<RadarUpgrades>();
         myDirectionRadar = directionRadar.north;
@@ -63,12 +75,24 @@ public class RadarManager : MonoBehaviour
 
         zones.Clear();
         GetRandomZoneRadar();
+
+        infoRadar.text = "Default";
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
+    }
+
+    public void InitRadar(MessageInitRadar msg)
+    {
+
+    }
+
+    public void UpdateRadar(MessageUpdateRadar msg)
+    {
+        infoRadar.text = msg.textInfoRadar;
     }
 
     void GetRandomZoneRadar()

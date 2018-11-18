@@ -17,16 +17,13 @@ using ZXing.QrCode;
 public class ServerInstance : MonoBehaviour
 {
     NetworkClient mobileDevice;
-    string externalIP;
+    //string externalIP;
     private void Start()
     {
         NetworkServer.Listen(7777);
         OnRegister();
 
-        externalIP = IPManager.GetPublicIP();
-
-
-
+        //externalIP = IPManager.GetIP(ADDRESSFAM.IPv4);
     }
 
     private void OnRegister()
@@ -77,8 +74,8 @@ public class ServerInstance : MonoBehaviour
     /// </summary>
     private void OnGUI()
     {
-        //Texture2D myQR = generateQR(IPManager.GetIP(ADDRESSFAM.IPv4));
-        Texture2D myQR = generateQR(externalIP);
+        Texture2D myQR = generateQR(IPManager.GetIP(ADDRESSFAM.IPv4));
+        //Texture2D myQR = generateQR(externalIP);
 
         if (GUI.Button(new Rect(Screen.width / 2 - 128, Screen.height / 2 - 128, 256, 256), myQR, GUIStyle.none)) { }
     }

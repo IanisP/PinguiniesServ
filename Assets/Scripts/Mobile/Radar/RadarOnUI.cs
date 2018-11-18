@@ -18,7 +18,7 @@ public class RadarOnUI : MonoBehaviour
 
     public void ChangeRadarZone(List<directionRadar> _zones)
     {
-        int value = RadarManager.nbRoundMax - RadarManager.nbRound;
+        int value = RadarManager.instance.nbRoundMax - RadarManager.instance.nbRound;
         if (images.Count > 0)
         {
             for (int i = 0; i < images.Count; i++)
@@ -29,12 +29,12 @@ public class RadarOnUI : MonoBehaviour
         }
         for (int i = 0; i < _zones.Count; i++)
         {
-            if (value > RadarManager.nbRoundMax / 3 * 2)
+            if (value > RadarManager.instance.nbRoundMax / 3 * 2)
             {
                 spritesRadarParts [(int) _zones [i] * 3].color = Color.green;
                 images.Add(spritesRadarParts [(int) _zones [i] * 3]);
             }
-            else if (value > RadarManager.nbRoundMax / 3)
+            else if (value > RadarManager.instance.nbRoundMax / 3)
             {
                 spritesRadarParts [((int) _zones [i] * 3) + 1].color = Color.yellow;
                 images.Add(spritesRadarParts [((int) _zones [i] * 3) + 1]);

@@ -5,23 +5,25 @@ using UnityEngine.Networking;
 
 public enum valueMessage
 {
-    //A virer quand ça sera refait
+    //PC messages
     onCommandSent = 123,
-    //A virer quand ça sera refait
-    OnNetInitialisationRadar = 124,
-    OnNetTakeLanguageString = 125,
+
+    //Mobile messages
+    OnNetInitialisationRadar,
+    OnNetUpdateRadar,
 }
 
-public class MessageInitRadar : MessageBase //A appeler à l'instantiation d'un nouveau groupe de mob
+public class MessageUpdateRadar : MessageBase //A appeler à l'instantiation d'un nouveau groupe de mob
 {
-    public string description;              //la description, jusqu'à "Ils seront là dans "
-    public int nbRound;                     //nombre de tour avant l'arrivée
- //   public directionRadar directionRadar;   //La direction d'arivée des mobs
+    public string description;              //La description, jusqu'à "Ils seront là dans "
+    public int nbRound;                     //Nombre de tour avant l'arrivée
+                                            //   public directionRadar directionRadar;   //La direction d'arivée des mobs
+    public string textInfoRadar;            //Le texte d'information du pack de mob
 }
 
-public class SettingsRadar : MessageBase //A appeler à l'initialisation ou à la modification du radar, le met à jour sur le téléphone
+public class MessageInitRadar : MessageBase //A appeler à l'initialisation ou à la modification du radar, le met à jour sur le téléphone
 {
-    public int levelRadar;                  //niveau général du radar
+    public int levelRadar;                  //Niveau général du radar
     public bool hasFishingUpgrade;          //Si l'amélioration de pêche à été débloqué
 }
 
@@ -50,10 +52,17 @@ public class CallMessages
 
     /// Message pour le téléphone
     /// 
-    
+
+    public static void OnNetUpdateRadar(NetworkMessage msg)
+    {
+        MessageUpdateRadar msgRadar = msg.ReadMessage<MessageUpdateRadar>();
+        RadarManager.instance.UpdateRadar(msgRadar);
+    }
+
     public static void OnNetInitialisationRadar(NetworkMessage msg)
     {
-        SettingsRadar settingsRadar = msg.ReadMessage<SettingsRadar>();
+        MessageInitRadar msgRadar = msg.ReadMessage<MessageInitRadar>();
+        RadarManager.instance.InitRadar(msgRadar);
 
     }
 }
