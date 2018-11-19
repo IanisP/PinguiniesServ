@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
-  maxStack: 0
+  maxStack: 10
   stack: 0
 --- !u!222 &222993310869899760
 CanvasRenderer:

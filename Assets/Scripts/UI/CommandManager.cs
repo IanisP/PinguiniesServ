@@ -8,7 +8,7 @@ public class CommandManager : MonoBehaviour {
     GameObject inventory;
 
     [SerializeField]
-    Items[] items;
+    Items item;
 	
 	// Update is called once per frame
 	void Update ()
@@ -27,7 +27,12 @@ public class CommandManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Inventory.instance.AddItemInventory(items);
+            Inventory.instance.AddItemInventory(item);
         }
-	}
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Inventory.instance.DestroyItemAndSort();
+        }
+    }
 }

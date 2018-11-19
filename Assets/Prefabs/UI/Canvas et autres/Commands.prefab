@@ -48,11 +48,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1192875113034132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf28076b67c43645ba27b5d4a276554, type: 3}
+  m_Script: {fileID: 11500000, guid: aca2a1e9daac2184e9911439fa2c6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
-  items:
-  - {fileID: 114641181086970730, guid: e754c025298543d4fbd5fb51232cca30, type: 2}
-  - {fileID: 114641181086970730, guid: 06fc6f6e422bcb04eaf759db349226fc, type: 2}
-  - {fileID: 114641181086970730, guid: 6912c846c1c39cc4ab05d28320499a71, type: 2}
+  item: {fileID: 0}

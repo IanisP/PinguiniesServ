@@ -6,8 +6,8 @@ public class Items : MonoBehaviour {
 
     [SerializeField] Inventory.ItemType itemType;
     
-    [SerializeField] int maxStack;
-    [SerializeField] int stack;
+    [SerializeField] public int maxStack;
+    [SerializeField] public int stack;
 
     private void Start()
     {
