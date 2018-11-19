@@ -142,10 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f097cf192f5d63943a6f4cb045eb7bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrays:
-  - keys: 0100000002000000
-  - keys: 030000000400000005000000
-  - keys: 06000000
+  arrays: []
+  isMoving: 0
   tb: {fileID: 1331534176}
 --- !u!61 &77971348
 BoxCollider2D:
@@ -917,7 +915,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 985926771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0df7f0722418cd41b5123735cfde0e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 7febc92cba2665e4b83ea8f50de2b1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destinationRoom: 0
@@ -1335,6 +1333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrays:
   - keys: 04000000
+  isMoving: 1
   tb: {fileID: 1331534176}
 --- !u!1 &1358941056
 GameObject:

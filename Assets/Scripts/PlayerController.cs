@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     [SerializeField]
-    float speed = 1;
+    public float speed = 1;
 
     [SerializeField]
     Sprite[] Apparence;
@@ -58,6 +58,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        CameraController.canMove = false;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (CameraController.onTrigger == false)
+        {
+            CameraController.canMove = true;
+        }
+    }
     private void Deplacement()
     {
         /* //déplacement tout les cotés
@@ -92,6 +103,7 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = Apparence[(int)sens];
         }
+
         rb.velocity = movement;
     }
 

@@ -11,6 +11,9 @@ public class PNJ : MonoBehaviour
     public TextArray[] arrays;
 
     [SerializeField]
+    bool isMoving;
+
+    [SerializeField]
     TextBox tb;
 
     bool eventActiv = false;
@@ -78,7 +81,7 @@ public class PNJ : MonoBehaviour
     private void Update()
     {
         DataManager.SpriteSortingLayer(gameObject);
-        if (!PNJIsBusy)
+        if (!PNJIsBusy && isMoving)
         {
             DeplacementPNJ();
         }
