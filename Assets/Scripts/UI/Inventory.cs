@@ -19,7 +19,10 @@ public class Inventory : MonoBehaviour {
 
     [SerializeField]
     List<Items> itemsInventory;
-    Items item;
+
+    List<GameObject> listInventory;
+    
+
     //[SerializeField]
     //GameObject test;
     Vector3 stepXY = new Vector3(0.0f, 0.0f);
@@ -37,11 +40,13 @@ public class Inventory : MonoBehaviour {
         {
             instance = this;
         }
-
+        listInventory = new List<GameObject>();
+        
 
         for (int i = 0; i < itemsInventory.Count; i++)
         {
             GameObject go = Instantiate(itemsInventory[i].gameObject, this.transform);
+            listInventory.Add(go);
             go.GetComponent<Image>().rectTransform.localPosition = stepXY;
             stepXY.x += step;
             go.GetComponent<Image>().sprite = itemsInventory[i].GetComponent<Image>().sprite;
@@ -60,20 +65,20 @@ public class Inventory : MonoBehaviour {
     {
         if (item.maxStack >= 1 && item.stack < item.maxStack)
         {
-            for (int i = 0; i < itemsInventory.Count; i++)
+            for (int i = 0; i < listInventory.Count; i++)
             {
-                if (itemsInventory[i] == item)
+                if (listInventory[i] == item)
                 {
-                    itemsInventory[i].stack += item.stack;
+                    listInventory[i].GetComponent<Items>().stack += item.stack;
 
-                    if (itemsInventory[i].stack > itemsInventory[i].maxStack)
+                    if (listInventory[i].GetComponent<Items>().stack > listInventory[i].GetComponent<Items>().maxStack)
                     {
-                        itemsInventory[i].stack = itemsInventory[i].maxStack;
+                        listInventory[i].GetComponent<Items>().stack = listInventory[i].GetComponent<Items>().maxStack;
                     }
                     return;
                 }
             }
-            itemsInventory.Add(item);
+            listInventory.Add(item.gameObject);
         }
         else
         {
@@ -84,14 +89,16 @@ public class Inventory : MonoBehaviour {
     public void DestroyItemAndSort()//vérifier autre part si un item est à 0 puis parcourir la liste, le remove et le sort
     {
 
-        for (int i = 0; i < itemsInventory.Count; i++)
+        for (int i = 0; i < listInventory.Count; i++)
         {
-            if (itemsInventory[i].stack <= 0)
+            if (listInventory[i].GetComponent<Items>().stack <= 0)
             {
-                Destroy(itemsInventory[i]);
-                itemsInventory.RemoveAt(i);
+                Destroy(listInventory[i]);
+                listInventory.RemoveAt(i);
+                return;
             }
         }
-        itemsInventory.Sort();        
+
+        listInventory.Sort();
     }
 }
